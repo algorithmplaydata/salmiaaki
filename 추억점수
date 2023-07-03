@@ -1,0 +1,18 @@
+def solution(name, yearning, photo):
+    phototuple = tuple(tuple(sub) for sub in photo)
+    index_list = name
+    # name과 yearning 리스트로 그리움 점수 딕셔너리 생성
+    yearning_dict = {index_list[i]: yearning[i] for i in range(len(index_list))}
+    #{} : 딕셔너리 생성 그리움으로 딕셔너리 i 키 마지막으로, 이렇게 생성된 사전이 yearning_dict 변수에 저장
+    result = []
+    for photo_members in phototuple:
+        # 각 사진의 그리움 점수를 임시로 저장한다.
+        temp_memory_score = 0
+        #사진 넣고
+        for member in photo_members:
+            temp_memory_score += yearning_dict.get(member, 0)
+        #겟함수 사용해서 멤버와 딕셔너리값을 모은다
+        result.append(temp_memory_score)
+    
+    return result
+                       
