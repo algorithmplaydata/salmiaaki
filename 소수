@@ -1,0 +1,19 @@
+def calculate_values(mina, maxa):
+    li = []
+    for i in range(mina, maxa):
+        is_prime: bool = True  #소수함수를 지정하고 예외를 가정해서 작성해주고이를 더해줌
+        for n in range(2, i): 
+            if i % n == 0:
+                is_prime = False
+                break
+        if is_prime:
+            li.append(i)
+
+    if len(li) >= 1:
+        print(min(li))
+        print(sum(li))
+    else:
+        print(-1)
+
+a, b = map(int, input().split())
+calculate_values(a, b)
